@@ -20,5 +20,5 @@ public interface ConfigConstant {
    	//jsp的基础路径
    	String APP_JSP_PATH="smart.framework.app.jsp_path";
    	//静态资源文件的基础路径 js/css/img...
-   	String aPP_ASSETS_PATH="smart.framework.app.assets_path";
+   	String APP_ASSETS_PATH="smart.framework.app.assets_path";
 }

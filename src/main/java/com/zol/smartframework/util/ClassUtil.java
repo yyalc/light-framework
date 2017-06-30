@@ -22,7 +22,7 @@ import org.slf4j.LoggerFactory;
  * @author suzhihui  
  * 类操作工具类
  */
-public class ClassUtil {
+public final class ClassUtil {
 	
 	private static final Logger LOGGER=LoggerFactory.getLogger(ClassUtil.class);
 	

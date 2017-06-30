@@ -6,7 +6,7 @@ import org.apache.commons.lang3.StringUtils;
  * 创建时间：2017年6月29日   
  * @author suzhihui  
  */
-public class StringUtil {
+public final class StringUtil {
 	
 	//判断字符串是否为空
 	public static boolean isEmpty(String str){
