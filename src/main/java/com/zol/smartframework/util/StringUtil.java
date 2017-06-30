@@ -21,4 +21,13 @@ public final class StringUtil {
 		return !isEmpty(str);
 	}
 
+	/**
+	 * 分割字符串
+	 * @param str
+	 * @param separator
+	 * @return
+	 */
+	public static String[] splitString(String str,String separator){
+		return StringUtils.splitByWholeSeparator(str, separator);
+	}
 }

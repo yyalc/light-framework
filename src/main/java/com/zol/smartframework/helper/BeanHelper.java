@@ -4,14 +4,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import com.zol.smartframework.util.RefeletionUtil;
+import com.zol.smartframework.util.ReflectionUtil;
 
 /**  
  * 创建时间：2017年6月30日   
  * @author suzhihui  
  * bean助手类
  */
-public class BeanHelper {
+public final class BeanHelper {
 	/**
 	 * bean映射（用于存放bean类与bean实例的映射关系）
 	 */
@@ -20,7 +20,7 @@ public class BeanHelper {
 	static{
 		Set<Class<?>> beanClasseSet=ClassHelper.getBeanClassSet();
 		for(Class<?> cls:beanClasseSet){
-			Object object=RefeletionUtil.newInstance(cls);
+			Object object=ReflectionUtil.newInstance(cls);
 			BEAN_MAP.put(cls, object);
 		}
 	}

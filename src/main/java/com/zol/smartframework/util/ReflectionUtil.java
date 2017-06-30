@@ -12,10 +12,10 @@ import org.slf4j.LoggerFactory;
  * 
  * @author suzhihui 反射工具类
  */
-public class RefeletionUtil {
+public class ReflectionUtil {
 
 	private static final Logger LOGGER = LoggerFactory
-			.getLogger(RefeletionUtil.class);
+			.getLogger(ReflectionUtil.class);
    /**
     *创建实例
     * @param cls
