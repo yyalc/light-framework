@@ -1,5 +1,6 @@
 package com.zol.smartframework;
 
+import com.zol.smartframework.helper.AopHelper;
 import com.zol.smartframework.helper.BeanHelper;
 import com.zol.smartframework.helper.ClassHelper;
 import com.zol.smartframework.helper.ControllerHelper;
@@ -18,7 +19,8 @@ public final class HelperLoader {
 			ClassHelper.class,
 			BeanHelper.class,
 			IocHelper.class,
-			ControllerHelper.class
+			ControllerHelper.class,
+			AopHelper.class
 		};
 		for(Class<?> cls:classList){
 			ClassUtil.loadClass(cls.getName());

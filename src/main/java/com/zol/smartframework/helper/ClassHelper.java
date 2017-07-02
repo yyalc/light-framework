@@ -1,5 +1,6 @@
 package com.zol.smartframework.helper;
 
+import java.lang.annotation.Annotation;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -53,6 +54,28 @@ public final class ClassHelper {
     	Set<Class<?>> classSet=new HashSet<>();
     	classSet.addAll(getServiceClassSet());
     	classSet.addAll(getControllerClassSet());
+    	return classSet;
+    }
+    
+    //获取应用包名下某父类(接口)的所有子类(实现类)
+    public static Set<Class<?>> getClassSetBySuper(Class<?> superCalss){
+    	Set<Class<?>> classSet=new HashSet<Class<?>>();
+    	for(Class<?> cls:getClasseSet()){
+    		if(superCalss.isAssignableFrom(cls)&&!superCalss.equals(cls)){
+    			classSet.add(cls);
+    		}
+    	}
+    	return classSet;
+    }
+    
+    //获取应用包名下带有某注解的所有类
+    public static Set<Class<?>> getClassSetByAnnotation(Class<? extends Annotation> annotationCls){
+    	Set<Class<?>> classSet=new HashSet<Class<?>>();
+    	for(Class<?> cls:getClasseSet()){
+    		if(cls.isAnnotationPresent(annotationCls)){
+    			classSet.add(cls);
+    		}
+    	}
     	return classSet;
     }
 }
