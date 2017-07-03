@@ -22,7 +22,7 @@ public final class StreamUtil {
 	private static final Logger LOGGER=LoggerFactory.getLogger(StreamUtil.class);
 	
 	/**
-	 * 	送输入流中获取字符串
+	 * 	从输入流中获取字符串
 	 * @param is
 	 * @return
 	 */
@@ -48,7 +48,7 @@ public final class StreamUtil {
 	public static void copyStream(InputStream is,OutputStream os){
 		try {
 			int length;
-			byte[] buffer=new byte[1024];
+			byte[] buffer=new byte[4*1024];
 			while((length=is.read(buffer,0,buffer.length))!=-1){
 				os.write(buffer);
 			}

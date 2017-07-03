@@ -7,7 +7,9 @@ import org.apache.commons.lang3.StringUtils;
  * @author suzhihui  
  */
 public final class StringUtil {
-	
+	//字符串分隔符 分组符
+	public static final String SEPERATOR = String.valueOf((char)29);
+
 	//判断字符串是否为空
 	public static boolean isEmpty(String str){
 		if(null!=str){
@@ -30,4 +32,5 @@ public final class StringUtil {
 	public static String[] splitString(String str,String separator){
 		return StringUtils.splitByWholeSeparator(str, separator);
 	}
+	
 }

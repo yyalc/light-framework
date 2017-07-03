@@ -66,4 +66,35 @@ public final class ConfigHelper {
 	public static String getAppJspPath(){
 		return PropsUtil.getString(CONFIG_PROPERTIES,ConfigConstant.APP_JSP_PATH,"/WEB-INF/view/");
 	}
+	/**
+	 * 获取应用文件上传限制
+	 * @return
+	 */
+	public static int getAppUploadLimit(){
+		return PropsUtil.getInt(CONFIG_PROPERTIES,ConfigConstant.APP_UPLOAD_LIMIT,10);
+	}
+	/**
+	 * 根据属性名获取string类型的属性值
+	 * @param key
+	 * @return
+	 */
+	public static String getString(String key){
+		return PropsUtil.getString(CONFIG_PROPERTIES, key);
+	}
+	/**
+	 * 根据属性名获取int类型的属性值
+	 * @param key
+	 * @return
+	 */
+	public static int getInt(String key){
+		return PropsUtil.getInt(CONFIG_PROPERTIES, key);
+	}
+	/**
+	 * 根据属性名获取boolean类型的属性值
+	 * @param key
+	 * @return
+	 */
+	public static boolean getBoolean(String key){
+		return PropsUtil.getBoolean(CONFIG_PROPERTIES, key);
+	}
 }

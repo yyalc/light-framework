@@ -13,9 +13,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.zol.smartframework.annotation.Aspect;
+import com.zol.smartframework.annotation.Service;
 import com.zol.smartframework.proxy.AspectProxy;
 import com.zol.smartframework.proxy.Proxy;
 import com.zol.smartframework.proxy.ProxyManager;
+import com.zol.smartframework.proxy.TransactionProxy;
 
 /**
  *创建时间：2017年7月1日
@@ -44,6 +46,19 @@ public final class AopHelper {
 	
 	private static Map<Class<?>, Set<Class<?>>> createProxyMap() throws Exception{
 		Map<Class<?>, Set<Class<?>>> proxyMap=new HashMap<Class<?>, Set<Class<?>>>();
+		addAspectProxy(proxyMap);
+		addTRansactionProxy(proxyMap);
+		return proxyMap;
+	}
+	
+	private static void addTRansactionProxy(Map<Class<?>, Set<Class<?>>> proxyMap)
+			throws Exception {
+		Set<Class<?>> proxyClassSet=ClassHelper.getClassSetByAnnotation(Service.class);
+		proxyMap.put(TransactionProxy.class, proxyClassSet);
+	}
+
+	private static void addAspectProxy(Map<Class<?>, Set<Class<?>>> proxyMap)
+			throws Exception {
 		Set<Class<?>> proxyClassSet=ClassHelper.getClassSetBySuper(AspectProxy.class);
 		for(Class<?> cls:proxyClassSet){
 			if(cls.isAnnotationPresent(Aspect.class)){
@@ -52,7 +67,6 @@ public final class AopHelper {
 				proxyMap.put(cls, targetClassSet);
 			}
 		}
-		return proxyMap;
 	}
 
 	private static Set<Class<?>> creatTargetClassSet(Aspect aspect) throws Exception {
